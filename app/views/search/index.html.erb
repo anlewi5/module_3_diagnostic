@@ -3,11 +3,15 @@
 # And for each of the stations I should see Name, Address, Fuel Types, Distance, and Access Times %>
 
 <% @stations.each do |station| %>
-<ul class="station">
-  <li class="name"><%= station.name %></li>
-  <li class="address"><%= station.address %></li>
-  <li class="fuel_types"><%= station.fuel_types %></li>
-  <li class="distance"><%= station.distance %></li>
-  <li class="access_times"><%= station.access_times %></li>
-</ul>
+<div class="station">
+  <ul class="name">
+    <li><strong><%= station.name %></strong></li>
+    <ul>
+      <li class="address"><%= station.address %></li>
+      <li class="fuel_types"><%= station.fuel_types %></li>
+      <li class="distance"><%= station.distance %> miles</li>
+      <li class="access_times"><%= station.access_times %></li>
+    </ul>
+  </ul>
+</div>
 <% end %>

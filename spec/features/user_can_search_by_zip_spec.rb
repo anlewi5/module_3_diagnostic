@@ -6,7 +6,7 @@ feature "User can search by zip" do
     page.fill_in 'location', with: 80203
     click_on 'Locate'
     
-    expect(current_path).to be '/search?location=80203'
+    expect(current_path).to eq '/search?location=80203'
   end
   scenario "and should see a list of the 10 closest stations within 6 miles sorted by distance" do
 

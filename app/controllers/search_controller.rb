@@ -8,7 +8,10 @@ class SearchController < ApplicationController
     end
 
     response = @conn.get("/nrel/alt-fuel-stations/v1/nearest.json?location=#{location}")
-    @stations = JSON.parse(response.body, symbolize_names: true)[:fuel_stations]
-    binding.pry
+
+    results = JSON.parse(response.body, symbolize_names: true)[:fuel_stations]
+
+    @stations  = results.map do |result|
+      Station.new(result)
     end
 end

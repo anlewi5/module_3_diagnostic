@@ -14,4 +14,5 @@ class SearchController < ApplicationController
     @stations  = results.map do |result|
       Station.new(result)
     end
+  end
 end

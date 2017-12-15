@@ -3,10 +3,10 @@ require 'rails_helper'
 feature "User can search by zip" do
   scenario "and get to page /search with visible params" do
     visit '/'
-    page.fill_in 'search-field' with: 80203
+    page.fill_in 'zip', with: 80203
     click_on 'Locate'
-
-    expect(current_page).to be '/search?zip=80203'
+    
+    expect(current_path).to be '/search?zip=80203'
   end
   scenario "and should see a list of the 10 closest stations within 6 miles sorted by distance" do
 

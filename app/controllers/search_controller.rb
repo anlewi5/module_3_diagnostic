@@ -8,7 +8,6 @@ class SearchController < ApplicationController
     end
 
     response = @conn.get("/nrel/alt-fuel-stations/v1.json?zip=#{zip}")
-    binding.pry
     @stations = JSON.parse(response.body, symbolize_names: true)[:fuel_stations]
     binding.pry
     end
